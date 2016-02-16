@@ -1,4 +1,5 @@
 // Prints all IOServices
+#include <IOKit/IOKitLib.h>
 
 int main(int argc, char * argv[]) {
   kern_return_t err;
@@ -6,7 +7,7 @@ int main(int argc, char * argv[]) {
   err = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IOService"), &i);
   
   if (err != KERN_SUCCESS) {
-    fprintf(stderr,"IOServiceGetMatchingServices: error\n");
+    printf("IOServiceGetMatchingServices: error\n");
     exit(1);
   }
 	
